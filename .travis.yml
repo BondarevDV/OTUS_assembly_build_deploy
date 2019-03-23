@@ -6,13 +6,13 @@ before_script:
 - sudo aptitude install libboost-test-dev -y
 - sudo aptitude install libspdlog-dev -y
 script:
-- echo "-------------------------------------------"
+- echo "---Task1--------"
 - cmake .
-- echo "-------------------------------------------"
+- echo "---Task2--------"
 - cmake --build .
-- echo "-------------------------------------------"
+- echo "---Task3--------"
 - cmake --build . --target test
-- echo "-------------------------------------------"
+- echo "---Task4--------"
 - cmake --build . --target package
 - echo "-------------------------------------------"
 deploy:
