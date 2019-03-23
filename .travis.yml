@@ -9,12 +9,11 @@ script:
 - echo "---Task1--------"
 - cmake .
 - echo "---Task2--------"
-- cmake --build .
+- cmake -v --build .
 - echo "---Task3--------"
-- cmake --build . --target test
+- cmake -v --build . --target test
 - echo "---Task4--------"
-- cmake --build . --target package
-- echo "-------------------------------------------"
+- cmake -v --build . --target package
 deploy:
   provider: script
   skip_cleanup: true
