@@ -9,7 +9,6 @@ script:
 - cmake --build .
 - cmake --build . --target test
 - cmake --build . --target package
-- echo $BINTRAY_API_KEY
 deploy:
   provider: script
   skip_cleanup: true
