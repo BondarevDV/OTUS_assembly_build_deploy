@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.2)
 
-project(helloworld VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
+project(cmake VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
+find_package(Threads REQUIRED)
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 configure_file(version.h.in ${PROJECT_SOURCE_DIR}/version.h)
@@ -25,6 +26,7 @@ set_target_properties(test_version PROPERTIES
 
 target_link_libraries(helloworld_cli
     helloworld
+    Threads::Threads
 )
 
 target_link_libraries(test_version

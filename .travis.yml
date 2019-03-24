@@ -1,21 +1,16 @@
+dist: xenial
 language: cpp
 compiler: clang
 before_script:
-- echo "deb http://archive.ubuntu.com/ubuntu xenial main universe" | sudo tee -a /etc/apt/sources.list.d/xenial.list
-- sudo aptitude update
-- sudo aptitude install libboost-test-dev -y
-- sudo aptitude install libspdlog-dev -y
+- sudo apt update
+- sudo apt install libboost-test-dev libspdlog-dev -y
 script:
-- echo "---Task1--------"
 - cmake .
-- echo "---Task2--------"
-- cmake -v --build .
-- echo "---Task3--------"
-- cmake -v --build . --target test
-- echo "---Task4--------"
-- cmake -v --build . --target package
+- cmake --build .
+- cmake --build . --target test
+- cmake --build . --target package
 deploy:
   provider: script
   skip_cleanup: true
   script:
-  - curl -T helloworld-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ushebdim:$BINTRAY_API_KEY "https://api.bintray.com/content/shebdim/otus-cpp/homework/$TRAVIS_BUILD_NUMBER/helloworld-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+  - curl -T cmake-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ushebdim:$BINTRAY_API_KEY "https://api.bintray.com/content/shebdim/otus-cpp/homework/$TRAVIS_BUILD_NUMBER/cmake-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=xenial;deb_component=main;deb_architecture=amd64;publish=1"
