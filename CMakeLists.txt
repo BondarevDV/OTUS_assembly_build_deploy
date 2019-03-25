@@ -45,7 +45,7 @@ set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 set(CPACK_PACKAGE_CONTACT d.bondarev.86@mail.ru)
 
 set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
-
+set(CPACK_PACKAGE_NAME "helloworld")
 include(CPack)
 
 enable_testing()
