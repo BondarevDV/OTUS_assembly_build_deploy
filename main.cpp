@@ -8,7 +8,7 @@ int main()
 {
         auto logger = spdlog::stdout_logger_st("console");
         logger->set_pattern("%v");
-        logger->info("build {} \nHello, World!", version());
+        logger->info("build {}\nHello, World!", version());
         return 0;
 }
 
