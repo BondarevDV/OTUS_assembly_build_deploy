@@ -27,7 +27,7 @@ ADD ./src /app/src
 WORKDIR /app/build
 
 # Выполним сборку нашего проекта, а также его тестирование
-RUN cmake ../src && \
+RUN cmake ./src && \
     cmake --build . && \
     cmake --build . --target test && \
     cmake --build . --target package
